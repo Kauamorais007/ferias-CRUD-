@@ -33,7 +33,7 @@ atividade.dia = prompt("Qual dia?")
 
 let resposta
 while(true){
-    resposta = prompt ('O que fex este dia?')
+    resposta = prompt ('O que fez este dia?')
 
     if(resposta == "acabou")
         break
@@ -58,9 +58,25 @@ function atualizar(){
 }
 
 
+const remover = () => {
+    listar();
+  
+    let indice = prompt("Qual indice sera removido? ");
+  
+    atividades.splice(--indice, 1);
+  
+    console.log("Removido");
+  };
+
+
 
 
 
 module.exports = {
     perguntaOperacao,
+    remover,
+    atualizar,
+    listar,
+    criar,
+    criarAtualizar
   }

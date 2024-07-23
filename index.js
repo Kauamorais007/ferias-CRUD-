@@ -1,25 +1,31 @@
-const prompt = require('prompt-sync')();
-const f = require("./functions.js")
-let opcao = '';
+const prompt = require("prompt-sync")();
 
-let dia = '';
+const { criar, atualizar, remover, listar } = require("./functions.js");
 
-f.perguntaOperacao();
-process.stdin.on("data", function (data) {
-    let input = data.toString().trim();
-  
-    if (!opcao) {
-      opcao = Number(input);
-  
-      switch (opcao) {
-        case 1:
-        f.inserir;
-        break;
-      case 2:
-        
-        opcao = 0;
-        break;
-    }
+while (true) {
+  console.log(
+    "O que deseja fazer?\n1 - Criar\n2 - Atualizar\n3 - Remover\n4 - Listar\n5 - Sair\n"
+  );
+  let opcao = Number(prompt());
+
+  switch (opcao) {
+    case 1:
+      criar();
+      break;
+    case 2:
+      atualizar();
+      break;
+    case 3:
+      remover();
+      break;
+    case 4:
+      listar();
+      break;
+    case 5:
+      process.exit();
+      break;
+    default:
+      console.log("Opção inválida");
+      break;
+  }
 }
-    
-})
